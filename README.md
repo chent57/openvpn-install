@@ -25,9 +25,22 @@ Then run it:
 ./openvpn-install.sh
 ```
 
-You need to run the script as root and have the TUN module enabled.
-
+You need to run the script as root and have the TUN module enabled:
+```sh
+sudo modprobe tun
+```
 The first time you run it, you'll have to follow the assistant and answer a few questions to setup your VPN server.
+
+You can run this command to start openvpn server:
+```sh
+sudo systemctl start openvpn-server@server.service
+```
+
+You can check the listening port to make sure the service is running：
+```sh
+sudo netstat -nludp | grep 1194
+```
+
 
 When OpenVPN is installed, you can run the script again, and you will get the choice to:
 
